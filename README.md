@@ -38,8 +38,7 @@ This project includes features such as :
 ## Links
 
 #### YT [My YT Video](https://youtu.be/XHazw_7xqEk)
-#### Github [My GitHub](https://github.com/WillSplaine/COMP3015-WS)
-
+#### Github [My GitHub](https://github.com/WillSplaine/COMP3015-CW2WS)
 ### External Resource
 
 #### In this project the use of learnopengl.com was essential in both learning the correct usage for each element 
