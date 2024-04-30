@@ -18,14 +18,14 @@
 ### Features 
 
 This project includes features such as :
-PBR Shading - I have fully implemented PBR Lighting, objects within the scene react to the change in light position and the appearance changes based on this
-BlinnPhong Shading - I have conjoined both PBR and BlinnPhong together to allow a more detailed view of each model
-MultiLights - The scene has 3 Lights that move around the scene and are used in conjunction with PBR
-Toon Shading - I have included Toon Shading into the scene to give a better aesthetic that I like
-SpotLight - I have implemented a solo light that rotates around the scene
-Fog - I have included the use of fog to give a more unqiue aesthetic like showing off a new phone
-Multiple Textures - On some objects, through the use of blinnPhong model, the use of multiple or singular textures have been applied to the models
-Skybox - The scene is surrounded by a Skybox
+# PBR Shading - I have fully implemented PBR Lighting, objects within the scene react to the change in light position and the appearance changes based on this
+# BlinnPhong Shading - I have conjoined both PBR and BlinnPhong together to allow a more detailed view of each model
+# MultiLights - The scene has 3 Lights that move around the scene and are used in conjunction with PBR
+# Toon Shading - I have included Toon Shading into the scene to give a better aesthetic that I like
+# SpotLight - I have implemented a solo light that rotates around the scene
+# Fog - I have included the use of fog to give a more unqiue aesthetic like showing off a new phone
+# Multiple Textures - On some objects, through the use of blinnPhong model, the use of multiple or singular textures have been applied to the models
+# Skybox - The scene is surrounded by a Skybox
 
 ### Libraries
 #### Please ensure these libraries are in User/Public/OPENGL  in order to run the scene as intended
