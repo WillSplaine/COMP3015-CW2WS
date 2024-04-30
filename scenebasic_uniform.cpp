@@ -24,7 +24,7 @@ using glm::mat4;
 
 SceneBasic_Uniform::SceneBasic_Uniform() :
 	tPrev(0), angle(0.0f), rotSpeed(glm::pi<float>()/9.0f), torus(7.3f * .75, .4f, 50, 50),
-	plane(50.0f, 50.0f, 1, 1), lightPos(5.0f,5.0f,5.0f,1.0f), skybox(110.0f){
+	plane(50.0f, 50.0f, 1, 1),plane2(13.0, 10.0f,200,2), lightPos(5.0f, 5.0f, 5.0f, 1.0f), skybox(110.0f), time(0.0f) {
 	phone = ObjMesh::load("media/iphone_13.obj", true); 
 	
 }
@@ -97,7 +97,9 @@ void SceneBasic_Uniform::compile()
 
 void SceneBasic_Uniform::update(float t, glm::vec3 Orientation, glm::vec3 Position, glm::vec3 Up)
 {
-	float deltaT = t - tPrev;
+
+		
+		float deltaT = t - tPrev;
 
 	if (tPrev == 0.0f) deltaT = 0.0f;
 	tPrev = t;
@@ -118,10 +120,13 @@ void SceneBasic_Uniform::update(float t, glm::vec3 Orientation, glm::vec3 Positi
 		lightPos.x = sin(lightAngle) * 7.0f;
 
 	}
+	time = t;
 }
 
 void SceneBasic_Uniform::render()
 {
+	prog.setUniform("Time", time);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	prog.setUniform("Light[0].Position", view * lightPos);
@@ -188,7 +193,7 @@ void SceneBasic_Uniform::drawScene()
 {
 	drawFloor();
 
-	int numPhones = 9;
+	int numPhones = 3;
 	vec3 phoneBasColor(0.1f, 0.33f, 0.97f);
 	for (int i = 0; i < numPhones; i++)
 	{
@@ -218,6 +223,24 @@ void SceneBasic_Uniform::drawFloor()
 	model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
 	setMatrices(prog);
 	plane.render();
+
+	
+	
+	model = glm::rotate(model, glm::radians(-10.0f), vec3(0.0f, 0.0f, 1.0f));
+	model = glm::rotate(model, glm::radians(50.0f), vec3(1.0f, 0.0f, 0.0f));
+	model = glm::translate(glm::mat4(1.0),glm::vec3(0, -1.5,0));
+	model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
+	
+	prog.setUniform("Material.Ka", vec3(0.2f, 0.5f, 0.9f));
+	prog.setUniform("Material.Kd", vec3(0.2f, 0.55f, 0.9f));
+	prog.setUniform("Material.Ks", vec3(0.8f, 0.8f, 0.8f));
+	prog.setUniform("Material.Shininess", 100.0f);
+
+	prog.setUniform("Material.texChoice", 1);
+
+	
+	setMatrices(prog);
+	plane2.render();
 }
 
 void SceneBasic_Uniform::drawSpot(const vec3& pos, float rough, int metal, const vec3& color)

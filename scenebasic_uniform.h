@@ -25,12 +25,14 @@ private:
    Torus torus;
     Cube cube;
     Plane plane;
+    Plane plane2;
     std::unique_ptr<ObjMesh> phone;
     float lightAngle;
     float lightRotationSpeed;
     float tPrev;
     float angle;
     float rotSpeed;
+    float time;
 
 
     GLSLProgram prog, skyboxProg;

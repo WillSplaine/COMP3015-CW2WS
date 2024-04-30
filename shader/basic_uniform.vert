@@ -21,13 +21,24 @@ uniform mat3 NormalMatrix;
 uniform mat4 ProjectionMatrix;
 uniform mat4 MVP;
 
+uniform float Time;
+uniform float Freq = 200;
+uniform float Velocity = 100;
+uniform float Amp = 0.6;
 
 void main()
 {
+    vec4 pos = vec4(VertexPosition,1.0);
+
+    float u = Freq*pos.x-Velocity*Time;
+    pos.y = Amp*sin(u);
+    vec3 n =vec3(0.0);
+    n.xy = normalize(vec2(cos(u),1.0));
+
+ 
+
     TexCoord=VertexTexCoord;
     Normal = normalize(NormalMatrix*VertexNormal);
     Position = (ModelViewMatrix*vec4(VertexPosition,1.0)).xyz;
-
-
     gl_Position = MVP*vec4(VertexPosition,1.0);
 }
