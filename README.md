@@ -37,7 +37,7 @@ This project includes features such as :
 
 ## Links
 
-#### YT [My YT Video](https://youtu.be/y9RtyAhR2UI)
+#### YT [My YT Video](https://youtu.be/XHazw_7xqEk)
 #### Github [My GitHub](https://github.com/WillSplaine/COMP3015-WS)
 
 ### External Resource
