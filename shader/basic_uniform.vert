@@ -4,16 +4,17 @@ layout (location = 0) in vec3 VertexPosition;
 layout (location = 1) in vec3 VertexNormal;
 layout (location = 2) in vec2 VertexTexCoord;
 
-uniform struct LightInfo{
+uniform struct lightinfo{
 
-    vec4 Position; 
-    vec3 La;
-    vec3 L;
-} Light;
+    vec4 position; 
+    vec3 la;
+    vec3 l;
+} light;
 
 out vec3 Position;
 out vec3 Normal;
 out vec2 TexCoord;
+out vec3 vecPos;
 
 uniform mat4 ModelViewMatrix;
 uniform mat3 NormalMatrix;
